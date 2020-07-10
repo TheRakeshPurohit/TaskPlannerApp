@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Image, TouchableOpacity, Alert} from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 function TopBar() {
   return (
@@ -19,8 +19,9 @@ function TopBar() {
 
 const styles = StyleSheet.create({
   menu: {
-    fontSize: 50,
+    fontSize: 30,
     //backgroundColor: 'blue',
+    marginTop: '1%',
   },
   btnimg: {
     width: '60%',
