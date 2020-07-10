@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 function Task() {
@@ -10,7 +10,7 @@ function Task() {
           <Text style={styles.txt}>My Tasks</Text>
         </View>
         <View style={styles.imgView}>
-          <Icon name="calender" style={styles.icn} />
+          <Icon name="calendar" style={styles.icn} />
         </View>
       </View>
       <View style={styles.bottom}>
@@ -40,43 +40,48 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     //backgroundColor: 'blue',
-    margin: '3%',
+    margin: '6%',
   },
   header: {
     flexDirection: 'row',
-    flex: 1,
+    flex: 5,
     //backgroundColor: 'red',
   },
   title: {
-    flex: 3,
+    flex: 5,
     //backgroundColor: 'green',
   },
   image: {
     height: '100%',
     width: '100%',
-    resizeMode: 'cover',
+    //resizeMode: 'cover',
   },
   imgView: {
-    flex: 1,
+    flex: 0.9,
     backgroundColor: '#244749',
+    borderRadius: 100,
   },
   bottom: {
     backgroundColor: 'green',
-    flex: 3,
+    flex: 2,
     flexDirection: 'column',
     padding: '2%',
     justifyContent: 'space-around',
   },
   icn: {
-    fontSize: 50,
+    fontSize: 30,
+    alignSelf: 'center',
+    margin: '15%',
+    color: 'white',
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
   },
   txt: {
-    fontFamily: 'Poppins-Bold',
-    fontSize: 18,
+    fontFamily: 'Poppins',
+    fontSize: 27,
+    fontWeight: '300',
   },
   tag: {
     flex: 3,
