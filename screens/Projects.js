@@ -1,10 +1,44 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+//import CircularProgressBar from './CircularProgressBar';
 
 function Projects() {
   return (
     <View style={styles.projects}>
-      <Text>Projects</Text>
+      <View style={styles.header}>
+        <Text style={styles.headertxt}>Active Projects</Text>
+      </View>
+      <View style={styles.bottom}>
+        <ScrollView>
+          <View style={styles.row}>
+            <View style={styles.card}>
+              {/* <CircularProgressBar percent={20} /> */}
+              <Text style={styles.projecttitle}>Medical App</Text>
+              <Text style={styles.projecthour}>9 Hours Progress</Text>
+            </View>
+            <View style={styles.card}>
+              <Text style={styles.projecttitle}>Sports App</Text>
+              <Text style={styles.projecthour}>40 Hours Progress</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <View style={styles.card}>
+              <Text style={styles.projecttitle}>Rent App</Text>
+              <Text style={styles.projecthour}>18 Hours Progress</Text>
+            </View>
+            <View style={styles.card}>
+              <Text style={styles.projecttitle}>Banking App</Text>
+              <Text style={styles.projecthour}>21 Hours Progress</Text>
+            </View>
+          </View>
+          <View style={styles.row}>
+            <View style={styles.card}>
+              <Text style={styles.projecttitle}>Gaming Platform App</Text>
+              <Text style={styles.projecthour}>1 Hour Progress</Text>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 }
@@ -12,6 +46,44 @@ function Projects() {
 const styles = StyleSheet.create({
   projects: {
     flex: 1,
+    margin: '3%',
+  },
+  header: {
+    flex: 0.6,
+  },
+  headertxt: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: 21,
+  },
+  bottom: {
+    flex: 4,
+    justifyContent: 'space-around',
+  },
+  card: {
+    flexDirection: 'column',
+    backgroundColor: '#3C58B9',
+    //flex: 1,
+    borderRadius: 20,
+    padding: '2%',
+    margin: '1%',
+    //height: '10%',
+    //width: '10%',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  projecttitle: {
+    fontFamily: 'Poppins-Bold',
+  },
+  projecthour: {
+    fontFamily: 'Poppins-Regular',
+  },
+  progressbar: {
+    backgroundColor: 'blue',
+    height: '50%',
+    width: '50%',
+    borderRadius: 100,
   },
 });
 

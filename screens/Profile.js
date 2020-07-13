@@ -24,7 +24,7 @@ function Profile() {
 
 const styles = StyleSheet.create({
   profile: {
-    flex: 1,
+    flex: 0.8,
     backgroundColor: '#F4AC65',
     width: '100%',
     height: '55%',

@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   txt: {
-    fontFamily: 'Poppins',
+    fontFamily: 'Poppins-Regular',
     fontSize: 27,
     fontWeight: '300',
   },
