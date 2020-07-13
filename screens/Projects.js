@@ -11,7 +11,7 @@ function Projects() {
 
 const styles = StyleSheet.create({
   projects: {
-    //flex: 1,
+    flex: 1,
   },
 });
 
