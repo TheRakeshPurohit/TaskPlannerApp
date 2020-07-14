@@ -200,9 +200,9 @@ const CircularProgressBar = ({
 // default values for props
 CircularProgressBar.defaultProps = {
   percent: 0,
-  radius: 100,
-  bgRingWidth: 10,
-  progressRingWidth: 10,
+  radius: 35,
+  bgRingWidth: 8,
+  progressRingWidth: 8,
   ringColor: '#3498db',
   ringBgColor: 'grey',
   textFontSize: 20,

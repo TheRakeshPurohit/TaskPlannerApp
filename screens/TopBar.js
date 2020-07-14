@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-function TopBar() {
+function TopBar({ navigation }) {
   return (
     <View style={styles.TopBar}>
       <Icon name="menu" style={styles.menu} />
       <TouchableOpacity
         style={styles.btnsearch}
-        onPress={() => Alert.alert('clicked')}>
+        onPress={() => navigation.navigate('ProjectPage')}>
         <Image
           style={styles.btnimg}
           source={require('../assets/images/search.png')}

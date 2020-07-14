@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import TopBar from './TopBar';
 
-function Profile() {
+function Profile({ navigation }) {
   return (
     <View style={styles.profile}>
-      <TopBar />
+      <TopBar navigation={navigation} />
       <View style={styles.wrap}>
         <View style={styles.avtrbox}>
           <Image
@@ -26,18 +26,17 @@ const styles = StyleSheet.create({
   profile: {
     flex: 0.8,
     backgroundColor: '#F4AC65',
-    width: '100%',
-    height: '55%',
-    borderBottomStartRadius: 50,
-    borderBottomEndRadius: 50,
+    borderBottomStartRadius: 55,
+    borderBottomEndRadius: 55,
   },
   wrap: {
     //backgroundColor: 'red',
-    margin: '5%',
+    marginBottom: '9%',
+    marginHorizontal: '6%',
     flexDirection: 'row',
   },
   avtrbox: {
-    padding: 9,
+    margin: '3%',
     flex: 1,
     //backgroundColor: 'blue',
   },
