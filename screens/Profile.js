@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   descbox: {
     flex: 2,
     marginTop: '3%',
-    padding: 10,
+    padding: '5%',
     //backgroundColor: 'white',
   },
   avatar: {

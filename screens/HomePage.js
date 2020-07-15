@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   home: {
     //flex: 1,
     flexDirection: 'column',
-    //backgroundColor: 'orange',
+    backgroundColor: 'white',
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },

@@ -13,11 +13,13 @@ function ProjectTopBar({ navigation }) {
   return (
     <View style={styles.ProjectTopBar}>
       <View style={styles.backbar}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <View>
-            <Icon name="chevron-back" style={styles.backbutton} />
-          </View>
-        </TouchableOpacity>
+        <View>
+          <Icon
+            onPress={() => navigation.navigate('Home')}
+            name="chevron-back"
+            style={styles.backbutton}
+          />
+        </View>
       </View>
       <View style={styles.content}>
         <View style={styles.first}>
@@ -25,7 +27,7 @@ function ProjectTopBar({ navigation }) {
           <Text style={styles.greet}>Productive Day, Rakesh</Text>
         </View>
         <View style={styles.second}>
-          <TouchableOpacity onPress={() => Alert.alert('added')}>
+          <TouchableOpacity onPress={() => navigation.navigate('AddTask')}>
             <View style={styles.addtaskwrapper}>
               <Text style={styles.addtask}>Add Task</Text>
             </View>
@@ -189,14 +191,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
   },
   date: {
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Bold',
   },
   sunday: {
     fontFamily: 'Poppins-Regular',
     color: 'red',
   },
   sundate: {
-    fontFamily: 'Poppins-Regular',
+    fontFamily: 'Poppins-Bold',
     color: 'red',
   },
 });

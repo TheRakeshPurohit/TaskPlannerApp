@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+
 function TopBar({ navigation }) {
   return (
     <View style={styles.TopBar}>
@@ -36,12 +37,13 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   TopBar: {
-    width: '100%',
+    width: '98%',
     height: '15%',
     alignContent: 'stretch',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginTop: '5%',
+    margin: '3%',
+    //marginRight: '15%',
     //backgroundColor: 'red',
     //flex: 1,
   },
