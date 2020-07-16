@@ -82,12 +82,15 @@ const styles = StyleSheet.create({
   },
   ffView: {
     flex: 1,
+    marginVertical: '6%',
   },
   inproView: {
     flex: 1,
+    marginVertical: '6%',
   },
   newtaskView: {
     flex: 1,
+    marginVertical: '6%',
   },
   icn: {
     fontSize: 24,
@@ -108,6 +111,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Bold',
     fontSize: 24,
     fontWeight: '300',
+    marginLeft: '3%',
     marginTop: '3%',
   },
   tag: {
@@ -121,18 +125,18 @@ const styles = StyleSheet.create({
   },
   icnff: {
     flex: 1,
-    fontSize: 24,
+    fontSize: 21,
     backgroundColor: '#3C58B9',
-    padding: '20%',
+    padding: '18%',
     borderRadius: 100,
     alignSelf: 'center',
     color: 'white',
   },
   icnclock: {
     flex: 1,
-    fontSize: 24,
+    fontSize: 21,
     backgroundColor: '#C63C34',
-    padding: '20%',
+    padding: '18%',
     borderRadius: 100,
     alignSelf: 'center',
     color: 'white',
@@ -140,9 +144,9 @@ const styles = StyleSheet.create({
   },
   icnloader: {
     flex: 1,
-    fontSize: 24,
+    fontSize: 21,
     backgroundColor: '#F28333',
-    padding: '20%',
+    padding: '18%',
     borderRadius: 100,
     alignSelf: 'center',
     color: 'white',

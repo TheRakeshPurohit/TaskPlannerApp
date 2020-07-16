@@ -79,6 +79,7 @@ const CircularProgressBar = ({
   ringColor,
   ringBgColor,
   textFontSize,
+  textcolor,
   textFontWeight,
   clockwise,
   bgColor,
@@ -189,7 +190,11 @@ const CircularProgressBar = ({
       <Text
         style={[
           styles.display,
-          { fontSize: textFontSize, fontWeight: textFontWeight },
+          {
+            fontSize: textFontSize,
+            fontWeight: textFontWeight,
+            color: textcolor,
+          },
         ]}>
         {percent}%
       </Text>
@@ -200,13 +205,14 @@ const CircularProgressBar = ({
 // default values for props
 CircularProgressBar.defaultProps = {
   percent: 0,
-  radius: 35,
-  bgRingWidth: 8,
-  progressRingWidth: 8,
-  ringColor: '#3498DB',
-  ringBgColor: 'white',
-  textFontSize: 20,
-  textFontWeight: 'bold',
+  radius: 34,
+  bgRingWidth: 4,
+  progressRingWidth: 4,
+  ringColor: 'white', //#3498DB
+  ringBgColor: 'grey',
+  textFontSize: 15,
+  textcolor: 'white',
+  textFontWeight: '100',
   clockwise: true,
   bgColor: 'white',
   startDegrees: 0,
