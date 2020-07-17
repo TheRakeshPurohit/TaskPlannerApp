@@ -29,7 +29,11 @@ function Projects() {
               <Text style={styles.projecthour}>18 Hours Progress</Text>
             </View>
             <View style={styles.card3}>
-              <CircularProgressBar style={styles.bar} percent={10} />
+              <CircularProgressBar
+                style={styles.bar}
+                percent={10}
+                textFontColor={'white'}
+              />
               <Text style={styles.projecttitle}>Banking App</Text>
               <Text style={styles.projecthour}>21 Hours Progress</Text>
             </View>
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
   },
   card2: {
     flexDirection: 'column',
-    backgroundColor: '#FDD591',
+    backgroundColor: 'orange',
     //alignItems: 'center',
     borderRadius: 40,
     padding: '5%',

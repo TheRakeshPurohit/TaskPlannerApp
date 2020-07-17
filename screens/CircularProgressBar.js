@@ -50,7 +50,6 @@ const renderThirdLayer = (
           rotateByStyle(percent - 50, rotation, clockwise),
           commonStyles,
           ringColorStyle,
-          { borderWidth: progressRingWidth },
         ]}
       />
     );
@@ -61,17 +60,14 @@ const renderThirdLayer = (
           styles.offsetLayer,
           innerRingStyle,
           ringBgColorStyle,
-          {
-            transform: [{ rotateZ: `${offsetLayerRotation}deg` }],
-            borderWidth: bgRingWidth,
-          },
+          { transform: [{ rotateZ: `${offsetLayerRotation}deg` }] },
         ]}
       />
     );
   }
 };
 
-const CircularProgressBar = ({
+const CircularProgress = ({
   percent,
   radius,
   bgRingWidth,
@@ -79,8 +75,8 @@ const CircularProgressBar = ({
   ringColor,
   ringBgColor,
   textFontSize,
-  textcolor,
   textFontWeight,
+  textFontColor,
   clockwise,
   bgColor,
   startDegrees,
@@ -89,6 +85,10 @@ const CircularProgressBar = ({
     width: radius * 2,
     height: radius * 2,
     borderRadius: radius,
+    borderTopWidth: progressRingWidth,
+    borderLeftWidth: progressRingWidth,
+    borderBottomWidth: progressRingWidth,
+    borderRightWidth: progressRingWidth,
   };
 
   /**
@@ -102,6 +102,10 @@ const CircularProgressBar = ({
     width: innerRadius * 2,
     height: innerRadius * 2,
     borderRadius: innerRadius,
+    borderTopWidth: bgRingWidth,
+    borderLeftWidth: bgRingWidth,
+    borderBottomWidth: bgRingWidth,
+    borderRightWidth: bgRingWidth,
   };
 
   const ringColorStyle = {
@@ -160,7 +164,10 @@ const CircularProgressBar = ({
           firstProgressLayerStyle,
           commonStyles,
           ringColorStyle,
-          { borderWidth: progressRingWidth },
+          {
+            borderTopWidth: progressRingWidth,
+            borderRightWidth: progressRingWidth,
+          },
         ]}
       />
       {displayThickOffsetLayer && (
@@ -193,7 +200,7 @@ const CircularProgressBar = ({
           {
             fontSize: textFontSize,
             fontWeight: textFontWeight,
-            color: textcolor,
+            color: textFontColor,
           },
         ]}>
         {percent}%
@@ -203,16 +210,16 @@ const CircularProgressBar = ({
 };
 
 // default values for props
-CircularProgressBar.defaultProps = {
+CircularProgress.defaultProps = {
   percent: 0,
   radius: 34,
   bgRingWidth: 4,
   progressRingWidth: 4,
-  ringColor: 'white', //#3498DB
-  ringBgColor: 'grey',
+  ringColor: '#e7e7e7',
+  ringBgColor: 'rgba(175,175,175, 0.9)',
   textFontSize: 15,
-  textcolor: 'white',
-  textFontWeight: '100',
+  textFontColor: 'white',
+  textFontWeight: 'bold',
   clockwise: true,
   bgColor: 'white',
   startDegrees: 0,
@@ -250,4 +257,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CircularProgressBar;
+export default CircularProgress;

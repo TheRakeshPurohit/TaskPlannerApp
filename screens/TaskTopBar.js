@@ -37,13 +37,14 @@ function TaskTopBar({ navigation }) {
 
 const styles = StyleSheet.create({
   TaskTopBar: {
-    flex: 1.5,
+    flex: 1.3,
     backgroundColor: '#F4AC65',
     borderBottomStartRadius: 55,
     borderBottomEndRadius: 55,
   },
   second: {
     flex: 1,
+    //backgroundColor: 'rgb(12,12,12)',
   },
   third: {
     flex: 1,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '7%',
     flexDirection: 'column',
     //backgroundColor: 'red',
-    marginTop: '5%',
+    //marginTop: '4%',
   },
   title: {
     fontFamily: 'Poppins-Bold',
@@ -71,13 +72,15 @@ const styles = StyleSheet.create({
   },
   label: {
     fontFamily: 'Poppins-Regular',
-    fontSize: 15,
+    fontSize: 13,
+    //marginVertical: '1%',
     //backgroundColor: 'blue',
   },
   inputbox: {
     fontFamily: 'Poppins-Regular',
-    fontSize: 15,
+    fontSize: 14,
     borderBottomColor: 'black',
+    //height: '40%',
     borderBottomWidth: 1,
     //backgroundColor: 'pink',
   },
