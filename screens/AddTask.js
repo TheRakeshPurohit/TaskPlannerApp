@@ -52,7 +52,12 @@ function AddTask({ navigation }) {
           <View style={styles.descflex}>
             <KeyboardAvoidingView behavior="position">
               <Text style={styles.label}>Description</Text>
-              <TextInput multiline={true} style={styles.description} />
+              <TextInput
+                multiline={true}
+                numberOfLines={4}
+                textBreakStrategy="balanced"
+                style={styles.description}
+              />
             </KeyboardAvoidingView>
           </View>
           <View style={styles.categoryflex}>
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
   TaskBottom: {
-    flex: 1.2,
+    flex: 1.4,
     //backgroundColor: 'red',
     margin: '2%',
     marginBottom: '6.5%',
@@ -129,7 +134,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   descflex: {
-    flex: 1,
+    flex: 1.2,
     //margin: '1%',
     //backgroundColor: 'blue',
   },
@@ -146,14 +151,15 @@ const styles = StyleSheet.create({
   },
   inputbox: {
     fontFamily: 'Poppins-Regular',
-    fontSize: 15,
+    fontSize: 21,
     width: '56%',
     //borderBottomColor: 'black',
     //borderBottomWidth: 1,
     //backgroundColor: 'pink',
   },
   starttime: {
-    flex: 0.5,
+    //flex: 0.5,
+    width: '45%',
     paddingLeft: '2%',
     margin: '1%',
     borderBottomColor: 'black',
@@ -161,7 +167,8 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
   },
   endtime: {
-    flex: 0.5,
+    //flex: 0.5,
+    width: '45%',
     paddingLeft: '2%',
     margin: '1%',
     borderBottomColor: 'black',
@@ -180,10 +187,11 @@ const styles = StyleSheet.create({
   description: {
     fontFamily: 'Poppins-Regular',
     fontSize: 15,
-    marginHorizontal: '3%',
-    height: '72%',
+    marginHorizontal: '2%',
+    height: '78%',
     borderBottomColor: 'black',
     borderBottomWidth: 1,
+    //backgroundColor: 'red',
   },
   createtasktxt: {
     paddingVertical: '2%',
@@ -237,7 +245,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     marginHorizontal: '1%',
-    paddingVertical: '1.5%',
+    paddingVertical: '3%',
   },
   category1: {
     flex: 1,
@@ -247,7 +255,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     marginHorizontal: '1%',
-    paddingVertical: '1.5%',
+    paddingVertical: '2%',
   },
   category2: {
     flex: 1,
@@ -257,7 +265,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     marginHorizontal: '1%',
-    paddingVertical: '1.5%',
+    paddingVertical: '2%',
   },
   category3: {
     flex: 1,
@@ -267,7 +275,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     marginHorizontal: '1%',
-    paddingVertical: '1.5%',
+    paddingVertical: '2%',
   },
   category4: {
     flex: 1.3,
@@ -277,7 +285,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     textAlign: 'center',
     marginHorizontal: '0.5%',
-    paddingVertical: '1%',
+    paddingVertical: '2%',
   },
 });
 
