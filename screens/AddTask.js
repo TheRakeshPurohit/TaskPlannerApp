@@ -7,12 +7,14 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from 'react-native';
 import TaskTopBar from './TaskTopBar';
 import { Picker } from '@react-native-community/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 function AddTask({ navigation }) {
+  //Keyboard.dissmiss();
   //const [Clicked, setClicked] = useState(false);
   return (
     <SafeAreaView>
@@ -21,7 +23,7 @@ function AddTask({ navigation }) {
         <View style={styles.TaskBottom}>
           <View style={styles.timeflex}>
             <View style={styles.starttime}>
-              <Text style={styles.label}>Start time</Text>
+              <Text style={styles.timelabel}>Start time</Text>
               <View style={{ flexDirection: 'row' }}>
                 {/* <DateTimePicker
                   mode="time"
@@ -30,17 +32,17 @@ function AddTask({ navigation }) {
                   value={15072020}
                 /> */}
                 <TextInput style={styles.inputbox} />
-                <Picker mode="dropdown" style={{ width: '61%' }}>
+                <Picker mode="dropdown" style={{ width: '58%' }}>
                   <Picker.Item label="AM" value="AM" />
                   <Picker.Item label="PM" value="PM" />
                 </Picker>
               </View>
             </View>
             <View style={styles.endtime}>
-              <Text style={styles.label}>End time</Text>
+              <Text style={styles.timelabel}>End time</Text>
               <View style={{ flexDirection: 'row' }}>
                 <TextInput style={styles.inputbox} />
-                <Picker mode="dropdown" style={{ width: '61%' }}>
+                <Picker mode="dropdown" style={{ width: '58%' }}>
                   <Picker.Item label="AM" value="AM" />
                   <Picker.Item label="PM" value="PM" />
                 </Picker>
@@ -48,8 +50,10 @@ function AddTask({ navigation }) {
             </View>
           </View>
           <View style={styles.descflex}>
-            <Text style={styles.label}>Description</Text>
-            <TextInput multiline={true} style={styles.description} />
+            <KeyboardAvoidingView behavior="position">
+              <Text style={styles.label}>Description</Text>
+              <TextInput multiline={true} style={styles.description} />
+            </KeyboardAvoidingView>
           </View>
           <View style={styles.categoryflex}>
             <View>
@@ -79,9 +83,7 @@ function AddTask({ navigation }) {
                 </TouchableOpacity>
               </View>
               <View style={styles.category4}>
-                <TouchableOpacity
-                  //onPress={()=>setClicked(true)}
-                  style={styles.category4}>
+                <TouchableOpacity>
                   <Text style={styles.categorytxt}>GAMING PLATFORM APP</Text>
                 </TouchableOpacity>
               </View>
@@ -109,15 +111,15 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
   TaskBottom: {
-    flex: 1.9,
+    flex: 1.2,
     //backgroundColor: 'red',
     margin: '2%',
     marginBottom: '6.5%',
   },
   timeflex: {
-    flex: 0.9,
+    flex: 1,
     margin: '1%',
-    marginLeft: '1%',
+    //marginLeft: '1%',
     //alignSelf: 'center',
     //alignContent: 'center',
     alignItems: 'center',
@@ -132,7 +134,7 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
   },
   categoryflex: {
-    flex: 1,
+    flex: 1.2,
     margin: '1%',
     flexDirection: 'column',
     //backgroundColor: 'green',
@@ -145,26 +147,35 @@ const styles = StyleSheet.create({
   inputbox: {
     fontFamily: 'Poppins-Regular',
     fontSize: 15,
-    width: '45%',
-    borderBottomColor: 'black',
-    borderBottomWidth: 1,
+    width: '56%',
+    //borderBottomColor: 'black',
+    //borderBottomWidth: 1,
     //backgroundColor: 'pink',
   },
   starttime: {
-    flex: 1,
-    paddingLeft: '5%',
+    flex: 0.5,
+    paddingLeft: '2%',
     margin: '1%',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
     //backgroundColor: 'blue',
   },
   endtime: {
-    flex: 1,
-    paddingLeft: '5%',
+    flex: 0.5,
+    paddingLeft: '2%',
     margin: '1%',
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    //width: '90%',
     //backgroundColor: 'orange',
   },
   label: {
     fontFamily: 'Poppins-Regular',
-    marginLeft: '2%',
+    marginLeft: '1%',
+  },
+  timelabel: {
+    fontFamily: 'Poppins-Regular',
+    //marginRight: '1%',
   },
   description: {
     fontFamily: 'Poppins-Regular',
@@ -176,7 +187,7 @@ const styles = StyleSheet.create({
   },
   createtasktxt: {
     paddingVertical: '2%',
-    paddingHorizontal: '34%',
+    paddingHorizontal: '33%',
     color: 'white',
     backgroundColor: '#3C58B9',
     alignSelf: 'center',
@@ -187,7 +198,7 @@ const styles = StyleSheet.create({
   },
   buttonwrapper: {
     //marginHorizontal: '1%',
-    marginVertical: '8%',
+    marginVertical: '5%',
     //backgroundColor: 'red',
   },
   categories: {
@@ -212,6 +223,7 @@ const styles = StyleSheet.create({
     //backgroundColor: 'red',
     //paddingBottom: '3%',
     //marginBottom: '1%',
+    fontSize: 12,
     alignSelf: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -258,14 +270,14 @@ const styles = StyleSheet.create({
     paddingVertical: '1.5%',
   },
   category4: {
-    flex: 1,
+    flex: 1.3,
     backgroundColor: 'rgba(209,209,209, 0.7)',
     borderRadius: 20,
     alignItems: 'center',
     alignContent: 'center',
     textAlign: 'center',
-    marginHorizontal: '1%',
-    paddingVertical: '1.5%',
+    marginHorizontal: '0.5%',
+    paddingVertical: '1%',
   },
 });
 

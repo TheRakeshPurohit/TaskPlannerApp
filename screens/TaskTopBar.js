@@ -37,7 +37,7 @@ function TaskTopBar({ navigation }) {
 
 const styles = StyleSheet.create({
   TaskTopBar: {
-    flex: 1.3,
+    flex: 1,
     backgroundColor: '#F4AC65',
     borderBottomStartRadius: 55,
     borderBottomEndRadius: 55,
