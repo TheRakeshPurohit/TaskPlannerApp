@@ -82,15 +82,15 @@ const styles = StyleSheet.create({
   },
   ffView: {
     flex: 1,
-    marginVertical: '6%',
+    marginVertical: '7%',
   },
   inproView: {
     flex: 1,
-    marginVertical: '6%',
+    marginVertical: '7%',
   },
   newtaskView: {
     flex: 1,
-    marginVertical: '6%',
+    marginVertical: '7%',
   },
   icn: {
     fontSize: 24,

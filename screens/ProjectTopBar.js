@@ -69,40 +69,91 @@ function ProjectTopBar({ navigation }) {
           </View>
         </View>
         {/*//Time */}
-        <ScrollView>
-          <View style={styles.timewrapper}>
+
+        <View style={styles.timewrapper}>
+          <ScrollView>
             <View style={styles.time}>
-              <Text>9 AM</Text>
+              <View style={styles.timestamp}>
+                <Text>9 AM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectpinkbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>10 AM</Text>
+              <View style={styles.timestamp}>
+                <Text>10 AM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectbluebaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>11 AM</Text>
+              <View style={styles.timestamp}>
+                <Text>11 AM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectyellowbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>12 AM</Text>
+              <View style={styles.timestamp}>
+                <Text>12 AM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectpinkbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>1 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>1 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectbluebaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>2 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>2 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectyellowbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>3 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>3 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectpinkbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>4 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>4 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectbluebaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>5 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>5 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectyellowbaloon}>Project Research</Text>
+              </View>
             </View>
             <View style={styles.time}>
-              <Text>6 PM</Text>
+              <View style={styles.timestamp}>
+                <Text>6 PM</Text>
+              </View>
+              <View style={styles.projectstamp}>
+                <Text style={styles.projectpinkbaloon}>Project Research</Text>
+              </View>
             </View>
-          </View>
-        </ScrollView>
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -174,14 +225,22 @@ const styles = StyleSheet.create({
   },
   timewrapper: {
     flexDirection: 'column',
+    //backgroundColor: 'blue',
   },
   time: {
-    //justifyContent: 'space-around',
+    justifyContent: 'flex-start',
     //flex: 1,
+    flexDirection: 'row',
     //backgroundColor: 'red',
-    marginVertical: '2%',
-    padding: '2%',
+    marginVertical: '1%',
+    padding: '1%',
     //alignItems: 'center',
+  },
+  timestamp: {
+    flex: 1,
+  },
+  projectstamp: {
+    flex: 4,
   },
   monthTitle: {
     fontFamily: 'Poppins-Regular',
@@ -200,6 +259,27 @@ const styles = StyleSheet.create({
   sundate: {
     fontFamily: 'Poppins-Bold',
     color: 'red',
+  },
+  projectpinkbaloon: {
+    textAlign: 'center',
+    padding: '2%',
+    fontFamily: 'Poppins-Regular',
+    borderRadius: 25,
+    backgroundColor: 'pink',
+  },
+  projectbluebaloon: {
+    textAlign: 'center',
+    padding: '2%',
+    fontFamily: 'Poppins-Regular',
+    borderRadius: 25,
+    backgroundColor: '#4dacdb',
+  },
+  projectyellowbaloon: {
+    textAlign: 'center',
+    padding: '2%',
+    fontFamily: 'Poppins-Regular',
+    borderRadius: 25,
+    backgroundColor: '#f0ee81',
   },
 });
 

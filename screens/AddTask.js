@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,6 +6,7 @@ import {
   Dimensions,
   SafeAreaView,
   TextInput,
+  Platform,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
@@ -14,8 +15,25 @@ import { Picker } from '@react-native-community/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 function AddTask({ navigation }) {
-  //Keyboard.dissmiss();
-  //const [Clicked, setClicked] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showTimepicker = () => {
+    showMode('time');
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.AddTask}>
@@ -25,13 +43,21 @@ function AddTask({ navigation }) {
             <View style={styles.starttime}>
               <Text style={styles.timelabel}>Start time</Text>
               <View style={{ flexDirection: 'row' }}>
-                {/* <DateTimePicker
-                  mode="time"
-                  is24Hour={false}
-                  display="clock"
-                  value={15072020}
-                /> */}
-                <TextInput style={styles.inputbox} />
+                <TextInput
+                  onFocus={showTimepicker}
+                  value={date.toLocaleTimeString()}
+                  style={styles.inputbox}
+                />
+                {show && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display="default"
+                    onChange={onChange}
+                  />
+                )}
                 <Picker mode="dropdown" style={{ width: '58%' }}>
                   <Picker.Item label="AM" value="AM" />
                   <Picker.Item label="PM" value="PM" />
@@ -41,7 +67,21 @@ function AddTask({ navigation }) {
             <View style={styles.endtime}>
               <Text style={styles.timelabel}>End time</Text>
               <View style={{ flexDirection: 'row' }}>
-                <TextInput style={styles.inputbox} />
+                <TextInput
+                  onFocus={showTimepicker}
+                  value={date.toLocaleTimeString()}
+                  style={styles.inputbox}
+                />
+                {show && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={date}
+                    mode={mode}
+                    is24Hour={true}
+                    display="default"
+                    onChange={onChange}
+                  />
+                )}
                 <Picker mode="dropdown" style={{ width: '58%' }}>
                   <Picker.Item label="AM" value="AM" />
                   <Picker.Item label="PM" value="PM" />
@@ -128,7 +168,7 @@ const styles = StyleSheet.create({
     //alignSelf: 'center',
     //alignContent: 'center',
     alignItems: 'center',
-    padding: '1%',
+    //padding: '1%',
     flexDirection: 'row',
     //backgroundColor: 'pink',
     justifyContent: 'space-around',
@@ -186,8 +226,8 @@ const styles = StyleSheet.create({
   },
   description: {
     fontFamily: 'Poppins-Regular',
-    fontSize: 15,
-    marginHorizontal: '2%',
+    fontSize: 18,
+    marginHorizontal: '3%',
     height: '78%',
     borderBottomColor: 'black',
     borderBottomWidth: 1,

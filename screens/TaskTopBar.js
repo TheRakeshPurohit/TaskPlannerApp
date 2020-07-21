@@ -1,9 +1,29 @@
-import React from 'react';
-import { StyleSheet, TextInput, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput, Text, Platform, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 function TaskTopBar({ navigation }) {
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
   return (
     <View style={styles.TaskTopBar}>
       <View style={styles.backbar}>
@@ -24,7 +44,23 @@ function TaskTopBar({ navigation }) {
         <View style={styles.row}>
           <View style={styles.inputwrapper}>
             <Text style={styles.label}>Date</Text>
-            <TextInput style={styles.inputbox} />
+            <TextInput
+              onPress={showDatepicker}
+              onKeyPress={showDatepicker}
+              onFocus={showDatepicker}
+              style={styles.inputbox}
+              value={date.toLocaleDateString()}
+            />
+            {show && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                display="default"
+                onChange={onChange}
+              />
+            )}
           </View>
           <View style={styles.iconwrapper}>
             <IconFeather name="calendar" style={styles.calendaricon} />
@@ -37,7 +73,7 @@ function TaskTopBar({ navigation }) {
 
 const styles = StyleSheet.create({
   TaskTopBar: {
-    flex: 1,
+    flex: 1.2,
     backgroundColor: '#F4AC65',
     borderBottomStartRadius: 55,
     borderBottomEndRadius: 55,
@@ -78,7 +114,7 @@ const styles = StyleSheet.create({
   },
   inputbox: {
     fontFamily: 'Poppins-Regular',
-    fontSize: 14,
+    fontSize: 18,
     borderBottomColor: 'black',
     //height: '40%',
     borderBottomWidth: 1,
