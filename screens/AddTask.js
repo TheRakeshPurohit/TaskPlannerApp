@@ -8,6 +8,8 @@ import {
   TextInput,
   Platform,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
   KeyboardAvoidingView,
 } from 'react-native';
 import TaskTopBar from './TaskTopBar';
@@ -15,7 +17,7 @@ import { Picker } from '@react-native-community/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 function AddTask({ navigation }) {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date(15022020));
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
@@ -34,6 +36,25 @@ function AddTask({ navigation }) {
     showMode('time');
   };
 
+  const [date2, setDate2] = useState(new Date(15022020));
+  const [mode2, setMode2] = useState('date');
+  const [show2, setShow2] = useState(false);
+
+  const onChange2 = (event, selectedDate2) => {
+    const currentDate2 = selectedDate2 || date2;
+    setShow2(Platform.OS === 'ios');
+    setDate2(currentDate2);
+  };
+
+  const showMode2 = (currentMode) => {
+    setShow2(true);
+    setMode2(currentMode);
+  };
+
+  const showTimepicker2 = () => {
+    showMode2('time');
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.AddTask}>
@@ -43,11 +64,15 @@ function AddTask({ navigation }) {
             <View style={styles.starttime}>
               <Text style={styles.timelabel}>Start time</Text>
               <View style={{ flexDirection: 'row' }}>
-                <TextInput
-                  onFocus={showTimepicker}
-                  value={date.toLocaleTimeString()}
-                  style={styles.inputbox}
-                />
+                <TouchableWithoutFeedback
+                  style={{ backgroundColor: 'red' }}
+                  onPress={Keyboard.dismiss()}>
+                  <TextInput
+                    onFocus={showTimepicker}
+                    value={`${date.getHours()} : ${date.getMinutes()}`}
+                    style={styles.inputbox}
+                  />
+                </TouchableWithoutFeedback>
                 {show && (
                   <DateTimePicker
                     testID="dateTimePicker"
@@ -67,19 +92,23 @@ function AddTask({ navigation }) {
             <View style={styles.endtime}>
               <Text style={styles.timelabel}>End time</Text>
               <View style={{ flexDirection: 'row' }}>
-                <TextInput
-                  onFocus={showTimepicker}
-                  value={date.toLocaleTimeString()}
-                  style={styles.inputbox}
-                />
-                {show && (
+                <TouchableWithoutFeedback
+                  style={{ backgroundColor: 'red' }}
+                  onPress={Keyboard.dismiss()}>
+                  <TextInput
+                    onFocus={showTimepicker2}
+                    value={`${date2.getHours()} : ${date2.getMinutes()}`}
+                    style={styles.inputbox}
+                  />
+                </TouchableWithoutFeedback>
+                {show2 && (
                   <DateTimePicker
-                    testID="dateTimePicker"
-                    value={date}
-                    mode={mode}
+                    testID="dateTimePicker2"
+                    value={date2}
+                    mode={mode2}
                     is24Hour={true}
                     display="default"
-                    onChange={onChange}
+                    onChange={onChange2}
                   />
                 )}
                 <Picker mode="dropdown" style={{ width: '58%' }}>

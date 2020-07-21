@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, Text, Platform, View } from 'react-native';
+import {
+  StyleSheet,
+  TouchableWithoutFeedback,
+  TextInput,
+  Text,
+  Keyboard,
+  Platform,
+  View,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 function TaskTopBar({ navigation }) {
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (_event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
@@ -44,18 +52,23 @@ function TaskTopBar({ navigation }) {
         <View style={styles.row}>
           <View style={styles.inputwrapper}>
             <Text style={styles.label}>Date</Text>
-            <TextInput
-              onPress={showDatepicker}
-              onKeyPress={showDatepicker}
-              onFocus={showDatepicker}
-              style={styles.inputbox}
-              value={date.toLocaleDateString()}
-            />
+            <TouchableWithoutFeedback
+              style={{ backgroundColor: 'red' }}
+              onPress={Keyboard.dismiss()}>
+              <TextInput
+                onPress={showDatepicker}
+                onKeyPress={showDatepicker}
+                onFocus={showDatepicker}
+                style={styles.inputbox}
+                value={date.toLocaleDateString()}
+              />
+            </TouchableWithoutFeedback>
             {show && (
               <DateTimePicker
                 testID="dateTimePicker"
                 value={date}
                 mode={mode}
+                minimumDate={date}
                 is24Hour={true}
                 display="default"
                 onChange={onChange}
